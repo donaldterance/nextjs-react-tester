@@ -8,7 +8,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-  } from "@/components/ui/table";
+  } from "@/components/ui/company-table";
   import {
     HoverCard,
     HoverCardContent,
@@ -36,7 +36,7 @@ const  CompanyTable = () => {
                 setCompanyRevenue((result as []).reduce((n, {revenue}) => n + revenue, 0))
             });   
                
-            setDidMount(true);
+            //setDidMount(true);
        // }
 
        

@@ -59,6 +59,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        footer: {
+          DEFAULT: "hsl(var(--footer-foreground))",
+          foreground: "hsl(var(--footer-foreground))",
+        },
         // same as primary color
         'blue': {
           '50': '#f3f4fb',

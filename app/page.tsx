@@ -1,4 +1,5 @@
 import CompanyTable  from "@/components/ui/company";
+import CompanyContainer  from "@/components/ui/company-container"
 import {
   Card,
   CardContent,
@@ -30,7 +31,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Suspense fallback={<Loading />}>
-            <CompanyTable/>
+            <CompanyContainer/>
             </Suspense>
           </CardContent>
         </Card>
