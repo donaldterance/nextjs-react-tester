@@ -5,6 +5,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse):Promise<any> =
   var url = "https://venefish.enesien.com/api/companies";
   try
   {
+
     const apiRes = await fetch(url);
     const data = await apiRes.json();
     console.log(`/api/getCompanies success`)
@@ -12,7 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse):Promise<any> =
   }
   catch(error)
   {
-      console.error(`Error occured: ${error}`)
+      console.error(`Error occured in api/getCompanies: ${error}`)
       throw new Error("Error retrieving company list")
   }
 };

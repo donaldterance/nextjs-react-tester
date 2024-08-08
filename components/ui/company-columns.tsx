@@ -36,7 +36,17 @@ export const companyColumns: ColumnDef<Company>[] = [
   },
   {
     accessorKey: "website",
-    header: "Website",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Website
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
   },
   {
     accessorKey: "employees",
@@ -76,8 +86,8 @@ export const companyColumns: ColumnDef<Company>[] = [
       return formattedRevenue;
     },
   },
-  {
-      accessorKey: 'description',
-      header: 'Description',
-  },
+  // {
+  //     accessorKey: 'description',
+  //     header: 'Description',
+  // },
 ];

@@ -9,9 +9,9 @@ import {
     getPaginationRowModel,
     getSortedRowModel,
     useReactTable,
-  } from "@tanstack/react-table"
+} from "@tanstack/react-table"
 
-  import {
+import {
     Table,
     TableBody,
     TableCaption,
@@ -20,100 +20,100 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-  } from "@/components/ui/company-table"
+} from "@/components/ui/company-table"
 import { Button } from "./button"
 import { useState } from "react"
 
-  interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[],
-    caption:string,
-    employeeTotal:number,
+    caption: string,
+    employeeTotal: number,
     revenueTotal: string
 
-  }
+}
 
-    export function DataTable<TData, TValue>({
+export function DataTable<TData, TValue>({
     columns,
     data,
     caption,
     employeeTotal,
     revenueTotal
-    }: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData, TValue>) {
 
-        const myPagination = {pageIndex: 0, pageSize: 5}
-        const [sorting, setSorting] = useState<SortingState>([])
-        const [pagination, setPagination] = useState<PaginationState>({
-            pageIndex: 0,
-            pageSize: 5,
-          })
-  
-        const table = useReactTable({
-            data,
-            columns,
-            getCoreRowModel: getCoreRowModel(),
-            getPaginationRowModel: getPaginationRowModel(),
-            getSortedRowModel: getSortedRowModel(),
-            onPaginationChange: setPagination,
-            onSortingChange: setSorting,
-            state: { 
+    const myPagination = { pageIndex: 0, pageSize: 5 }
+    const [sorting, setSorting] = useState<SortingState>([])
+    const [pagination, setPagination] = useState<PaginationState>({
+        pageIndex: 0,
+        pageSize: 5,
+    })
+
+    const table = useReactTable({
+        data,
+        columns,
+        getCoreRowModel: getCoreRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        onPaginationChange: setPagination,
+        onSortingChange: setSorting,
+        state: {
             //    pagination,
-                sorting
-            },
+            sorting
+        },
 
     })
-    
+
     return (
         <div>
             <div className="rounded-md border">
                 <Table>
                     <TableCaption className="font-bold">{caption}</TableCaption>
                     <TableHeader>
-                    {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow key={headerGroup.id}>
-                        {headerGroup.headers.map((header) => {
-                            return (
-                            <TableHead key={header.id}>
-                                {header.isPlaceholder
-                                ? null
-                                : flexRender(
-                                    header.column.columnDef.header,
-                                    header.getContext()
-                                    )}
-                            </TableHead>
-                            )
-                        })}
-                        </TableRow>
-                    ))}
+                        {table.getHeaderGroups().map((headerGroup) => (
+                            <TableRow key={headerGroup.id}>
+                                {headerGroup.headers.map((header) => {
+                                    return (
+                                        <TableHead key={header.id}>
+                                            {header.isPlaceholder
+                                                ? null
+                                                : flexRender(
+                                                    header.column.columnDef.header,
+                                                    header.getContext()
+                                                )}
+                                        </TableHead>
+                                    )
+                                })}
+                            </TableRow>
+                        ))}
                     </TableHeader>
                     <TableBody>
-                    {table.getRowModel().rows?.length ? (
-                        table.getRowModel().rows.map((row) => (
-                        <TableRow
-                            key={row.id}
-                            data-state={row.getIsSelected() && "selected"}
-                        >
-                            {row.getVisibleCells().map((cell) => (
-                            <TableCell key={cell.id}>
-                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                            </TableCell>
-                            ))}
-                        </TableRow>
-                        ))
-                    ) : (
-                        <TableRow>
-                        <TableCell colSpan={columns.length} className="h-24 text-center">
-                            No results.
-                        </TableCell>
-                        </TableRow>
-                    )}
+                        {table.getRowModel().rows?.length ? (
+                            table.getRowModel().rows.map((row) => (
+                                <TableRow
+                                    key={row.id}
+                                    data-state={row.getIsSelected() && "selected"}
+                                >
+                                    {row.getVisibleCells().map((cell) => (
+                                        <TableCell key={cell.id}>
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            ))
+                        ) : (
+                            <TableRow>
+                                <TableCell colSpan={columns.length} className="h-24 text-center">
+                                    No results.
+                                </TableCell>
+                            </TableRow>
+                        )}
                     </TableBody>
                     <TableFooter className="">
                         <TableRow>
-                        <TableCell colSpan={3} className="font-semibold">TOTAL</TableCell>
-                        <TableCell className="font-semibold text-center">{employeeTotal}</TableCell>
-                        <TableCell className="font-semibold">{revenueTotal}</TableCell>
-                        <TableCell ></TableCell>
+                            <TableCell colSpan={3} className="font-semibold">TOTAL</TableCell>
+                            <TableCell className="font-semibold text-center">{employeeTotal}</TableCell>
+                            <TableCell className="font-semibold">{revenueTotal}</TableCell>
+                            <TableCell ></TableCell>
                         </TableRow>
                     </TableFooter>
                 </Table>
@@ -138,4 +138,4 @@ import { useState } from "react"
             </div> */}
         </div>
     )
-    }
+}

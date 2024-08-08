@@ -1,5 +1,5 @@
-import CompanyTable  from "@/components/ui/company";
-import CompanyContainer  from "@/components/ui/company-container"
+
+import CompanyContainer from "@/components/ui/company-container"
 import {
   Card,
   CardContent,
@@ -23,7 +23,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-      
+
         <Card>
           <CardHeader className="px-7">
             <CardTitle></CardTitle>
@@ -31,7 +31,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <Suspense fallback={<Loading />}>
-            <CompanyContainer/>
+              <CompanyContainer />
             </Suspense>
           </CardContent>
         </Card>
