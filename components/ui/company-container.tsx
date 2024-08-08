@@ -21,12 +21,11 @@ export default function CompanyContainer() {
     setShowAlert(true);
     setAlertMessage(message)
     const timeId = setTimeout(() => {
-      // After 3 seconds set the show value to false
-      setShowAlert(false)
+      hideAlertMessage();
     }, 5000)
     timeId;
   };
-  const hideAlertMessage = () => {
+  function hideAlertMessage() {
     setShowAlert(false);
     setAlertMessage("")
 
